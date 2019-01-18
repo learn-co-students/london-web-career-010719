@@ -1,0 +1,8 @@
+require_relative './config/environment'
+
+require 'sinatra/activerecord/rake'
+
+desc 'Run a irb session with all the files from ./app required'
+task :console do
+  Pry.start
+end
