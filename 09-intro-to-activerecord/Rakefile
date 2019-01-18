@@ -6,3 +6,8 @@ desc 'Run a irb session with all the files from ./app required'
 task :console do
   Pry.start
 end
+
+desc "say something EDGY"
+task :edgy do
+  puts "theresa may is the dancing queen"
+end

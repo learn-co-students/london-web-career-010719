@@ -1,0 +1,13 @@
+total 32
+drwxr-xr-x  10 dkaczmarczyk  staff   320 18 Jan 11:02 .
+drwxr-xr-x  14 dkaczmarczyk  staff   448 18 Jan 10:02 ..
+-rw-r--r--   1 dkaczmarczyk  staff   130 30 Nov 15:11 Gemfile
+-rw-r--r--   1 dkaczmarczyk  staff  1137 17 Oct 11:08 Gemfile.lock
+-rw-r--r--   1 dkaczmarczyk  staff   262 18 Jan 10:59 Rakefile
+drwxr-xr-x   3 dkaczmarczyk  staff    96 17 Oct 11:12 app
+drwxr-xr-x   3 dkaczmarczyk  staff    96  5 Sep 09:31 config
+drwxr-xr-x   5 dkaczmarczyk  staff   160 18 Jan 10:54 db
+-rw-r--r--   1 dkaczmarczyk  staff     0 18 Jan 11:02 list.txt
+-rw-r--r--   1 dkaczmarczyk  staff  2294 30 Nov 15:00 readme.md
+
+SIRIus 
