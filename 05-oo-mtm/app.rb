@@ -112,7 +112,7 @@ class Lecture
 
   @@all = []
 
-  attr_reader :topic, :podium ,:teacher, :time
+  attr_reader :topic, :podium, :teacher, :time
 
   def initialize(podium, teacher, time, topic)
     @podium = podium
@@ -137,7 +137,6 @@ class Lecture
   def self.all
     @@all
   end
-
 
 end
 

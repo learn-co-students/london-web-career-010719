@@ -59,9 +59,9 @@ end
 def run
   puts welcome
   search_term = get_search_term
-  search_results = make_search(search_term)
-  book_hashes = parse_books(search_results)
-  print_all_books_details(book_hashes)
+  search_results = make_search search_term
+  book_hashes = parse_books search_results
+  print_all_books_details book_hashes
 end
 
 run
