@@ -1,0 +1,28 @@
+<h1>Edit a Toy</h1>
+
+<a href="/dogs">See dogs</a>
+
+<form action="/toys/<%= @toy.id %>" method="post">
+  <input type="hidden" name="_method" value="patch" />
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="toy[name]" value="<%= @toy.name %>" />
+  </div>
+
+  <label for="dog"> Select a dog </label>
+  <select id="dog" name="toy[dog_id]">
+    <% @dogs.each do |dog| %>
+      <option
+        value="<%= dog.id %>"
+        <% if @toy.dog == dog %>
+          selected
+        <% end %>
+      >
+        <%= dog.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <br>
+  <input type="submit" value="Edit that Toy" />
+</form>

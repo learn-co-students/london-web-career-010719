@@ -30,6 +30,35 @@
       value=<%=@dog.age %>
     />
   </div>
+  <hr>
+  <div>
+    <h4> Select people who walk this dog </h4>
+    <% @people.each do |person| %>
+      <input
+        type="checkbox"
+        id="person-<%= person.id %>"
+        name="dog[person_ids][]"
+        value="<%= person.id %>"
+        <% if @dog.person_ids.include?(person.id) %> checked <% end %>
+      />
+      <label for="person-<%= person.id %>"> <%= person.name %> </label> 
+    <% end %>
+  </div>
+
+  <div>
+    <h4> Select toys to give to this dog </h4>
+    <% @toys.each do |toy| %>
+      <input
+        type="checkbox"
+        id="toy-<%= toy.id %>"
+        name="dog[toy_ids][]"
+        value="<%= toy.id %>"
+        <% if @dog.toy_ids.include?(toy.id) %> checked <% end %>
+      />
+      <label for="toy-<%= toy.id %>"> <%= toy.name %> </label> 
+    <% end %>
+
+  </div>
   <input type="submit" value="Edit <%= @dog.name %>" />
 </form>
 

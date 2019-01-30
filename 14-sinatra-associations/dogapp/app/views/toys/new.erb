@@ -1,0 +1,23 @@
+<h1>Create new Toy</h1>
+
+<a href="/dogs">See dogs</a>
+
+<form action="/toys" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="toy[name]" />
+  </div>
+
+  <label for="dog"> Select a dog </label>
+  <select id="dog" name="toy[dog_id]">
+    <% @dogs.each do |dog| %>
+      <option
+        value="<%= dog.id %>"
+      >
+        <%= dog.name %>
+      </option>
+    <% end %>
+  </select>
+  
+  <input type="submit" value="Create new Toy" />
+</form>

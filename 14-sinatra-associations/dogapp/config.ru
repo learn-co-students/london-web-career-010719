@@ -6,5 +6,6 @@ end
 
 use Rack::MethodOverride
 
+use ToysController
 use DogsController
 run ApplicationController

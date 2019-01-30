@@ -4,6 +4,19 @@
   <%= @dog.name %> is <%= @dog.age%> years old
 </p>
 
+<% if @dog.people.length > 0 %>
+  <h3> That dog had the pleasure to walk with these people: </h3>
+  <ul>
+    <% @dog.people.each do |person|%>
+      <li>
+        👶 <%= person.name %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3> That dog desperately needs some walkies </h3>
+<% end %>
+
 <button>
   <a href="/dogs/<%= @dog.id %>/edit"> Edit me </a>
 </button>
