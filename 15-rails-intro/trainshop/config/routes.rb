@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :trains, only: [:index, :show]
+
+  # get '/trains', to: "trains#index", as: 'trains'
+  # get '/trains/:id', to: 'trains#show', as: 'train'
+
 end
