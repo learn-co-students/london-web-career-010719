@@ -1,5 +1,7 @@
 <h1><%= @train.name %></h1>
 
+<%= link_to 'edit me', edit_train_path(@train) %>
+
 <p>
   This train costs £<%= @train.price %>
 </p>
