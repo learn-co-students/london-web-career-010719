@@ -1,5 +1,6 @@
 class TrainsController < ApplicationController
   before_action :find_train, only: [:edit, :show, :update, :destroy]
+  before_action :find_conductors, only: [:new, :edit]
 
   def index
     @trains = Train.all
@@ -33,12 +34,14 @@ class TrainsController < ApplicationController
   private
 
   def train_params
-    params.require(:train).permit(:name, :price)
+    params.require(:train).permit(:name, :price, :conductor_id, {passenger_ids: []})
   end
 
   def find_train
     @train = Train.find(params[:id])
   end
+
+  def find_conductors
+    @conductors = Conductor.all
+  end
 end
-
-
