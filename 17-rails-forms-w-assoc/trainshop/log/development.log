@@ -1,0 +1,710 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTrains (20190131113948)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "trains" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "price" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190131113948_create_trains.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190131113948"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-01-31 11:40:50.483887"], ["updated_at", "2019-01-31 11:40:50.483887"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mTrain Load (0.8ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" ORDER BY "trains"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" ORDER BY "trains"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrain Create (1.3ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thomas the Tank Engine"], ["price", 13], ["created_at", "2019-01-31 11:44:26.539782"], ["updated_at", "2019-01-31 11:44:26.539782"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrain Create (0.5ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jeffersons Choo Choo Car"], ["price", 313], ["created_at", "2019-01-31 11:44:26.547461"], ["updated_at", "2019-01-31 11:44:26.547461"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrain Create (0.3ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "A metal snake"], ["price", 35313], ["created_at", "2019-01-31 11:44:26.552069"], ["updated_at", "2019-01-31 11:44:26.552069"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrain Create (0.3ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hogwarts Express"], ["price", 5313], ["created_at", "2019-01-31 11:44:26.554228"], ["updated_at", "2019-01-31 11:44:26.554228"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" ORDER BY "trains"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" ORDER BY "trains"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+Started GET "/" for 127.0.0.1 at 2019-01-31 11:47:16 +0000
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 25ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-01-31 11:47:19 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (1.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:4
+  Rendered trains/index.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 329ms (Views: 317.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/trains/1" for 127.0.0.1 at 2019-01-31 11:47:45 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 42ms (Views: 23.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-01-31 11:47:48 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:4
+  Rendered trains/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 49ms (Views: 40.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains/2" for 127.0.0.1 at 2019-01-31 11:47:49 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 42ms (Views: 35.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains/2" for 127.0.0.1 at 2019-01-31 11:48:13 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 34ms (Views: 25.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains/2" for 127.0.0.1 at 2019-01-31 11:51:50 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 44ms (Views: 31.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-01-31 11:52:31 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:4
+  Rendered trains/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 51ms (Views: 41.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-01-31 11:54:57 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 51ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-01-31 11:55:05 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:4
+  Rendered trains/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 65ms (Views: 54.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-01-31 11:56:37 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/trains_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:4
+  Rendered trains/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 39585ms (Views: 26.6ms | ActiveRecord: 2.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrain Create (0.5ms)[0m  [1m[32mINSERT INTO "trains" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "thomas"], ["created_at", "2019-02-01 14:48:19.793451"], ["updated_at", "2019-02-01 14:48:19.793451"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTrain Load (0.8ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" ORDER BY "trains"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrain Destroy (3.3ms)[0m  [1m[31mDELETE FROM "trains" WHERE "trains"."id" = ?[0m  [["id", 5]]
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-02-01 14:51:16 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 29ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 14:57:30 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `model' for #<Train:0x007fb686253110>):
+    1: <%= form_for @train do |f| %>
+    2:   <%= f.label :model %>
+    3:   <%= f.text_field :model %>
+    4: 
+    5:   <%= f.label :price %>
+    6:   <%= f.number_field :price %>
+  
+app/views/trains/new.html.erb:3:in `block in _app_views_trains_new_html_erb__3632377546933078310_70210953664540'
+app/views/trains/new.html.erb:1:in `_app_views_trains_new_html_erb__3632377546933078310_70210953664540'
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 14:57:42 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 207ms (Views: 199.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 14:58:01 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 42ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 14:58:56 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:00:17 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/dkaczmarczyk/Desktop/desktop/student_code/classHoles/16-rails-forms/trainshop/app/views/layouts/application.html.erb:14: syntax error, unexpected tIDENTIFIER, expecting ')'
+...to 'Trainshop 🛤' trains_path );@output_buffer.safe_append...
+...                               ^):
+  
+app/views/layouts/application.html.erb:14: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:00:33 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 55ms (Views: 48.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:02:13 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:04:06 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 41ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/3/edit" for 127.0.0.1 at 2019-02-01 15:04:43 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/edit.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h2> Edit me </h2>
+    2: 
+    3: <%= form_for @train do |f| %>
+    4: 
+    5:   <%= f.label :name, 'Select a train name' %>
+    6:   <%= f.text_field :name %>
+  
+app/views/trains/edit.html.erb:3:in `_app_views_trains_edit_html_erb__3703057640627782792_70210990341580'
+Started GET "/trains/3/edit" for 127.0.0.1 at 2019-02-01 15:05:00 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:20
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 44ms (Views: 29.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:05:34 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 35ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:07:56 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (1.8ms)
+  Rendered trains/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 42ms (Views: 29.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/trains" for 127.0.0.1 at 2019-02-01 15:13:18 +0000
+Processing by TrainsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qstQdOq1zGJsMjF4/rPsLqARoX+gfoAwa3Y3jSoIH6U5r+Ko40XJ5wxngLM8LumQCxG13yFEoizTOwnjLEESCA==", "train"=>{"name"=>"bob", "price"=>"35"}, "commit"=>"Create Train"}
+No template found for TrainsController#create, rendering head :no_content
+Completed 204 No Content in 61498ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:15:36 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (2.0ms)
+  Rendered trains/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 41ms (Views: 28.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/trains" for 127.0.0.1 at 2019-02-01 15:15:41 +0000
+Processing by TrainsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q3AZPEphXk0opiEsADVsWmUw4Yg61mnlv4z52pL9+GTQFKvgQ5FbyEjzkOfCqGnkzjD1KLvsS/kHwce0lLT1yQ==", "train"=>{"name"=>"bob", "price"=>"4123"}, "commit"=>"Create Train"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[36mTrain Create (0.7ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "bob"], ["price", 4123], ["created_at", "2019-02-01 15:15:41.092531"], ["updated_at", "2019-02-01 15:15:41.092531"]]
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+Redirected to http://localhost:3000/trains/6
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/trains/6" for 127.0.0.1 at 2019-02-01 15:15:41 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-01 15:17:37 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:4
+  Rendered trains/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 44ms (Views: 37.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-01 15:17:54 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 44ms (Views: 38.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:17:55 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (9.2ms)
+  Rendered trains/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 73ms (Views: 67.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/trains" for 127.0.0.1 at 2019-02-01 15:18:08 +0000
+Processing by TrainsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6NHdN4VG9WdRepBTNsidTQqmlIYkadVL/A+lmCmLel0VIyvrNTn3F/i8YF0+3TggrGCIkEMxQyIW/6DyMvW/YA==", "train"=>{"name"=>"the milk express", "price"=>"3"}, "commit"=>"Create Train"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[36mTrain Create (0.4ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "the milk express"], ["price", 3], ["created_at", "2019-02-01 15:18:08.198111"], ["updated_at", "2019-02-01 15:18:08.198111"]]
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+Redirected to http://localhost:3000/trains/7
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/trains/7" for 127.0.0.1 at 2019-02-01 15:18:08 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 26.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-01 15:20:03 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 42ms (Views: 32.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:20:04 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (2.1ms)
+  Rendered trains/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 49ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/trains" for 127.0.0.1 at 2019-02-01 15:20:47 +0000
+Processing by TrainsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q29YnUveWx5MEUPI5UQHMGqPkwYic250+J7Gho3j21RWna5B+6FZbuXXs8btUaJdzEmPEEUr+B0SbsPslp0eaQ==", "train"=>{"name"=>"wasabi", "price"=>"2"}, "commit"=>"Create Train"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/trains_controller.rb:16:in `create'
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:23:49 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (1.8ms)
+  Rendered trains/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 34ms (Views: 25.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/trains" for 127.0.0.1 at 2019-02-01 15:23:52 +0000
+Processing by TrainsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xAdDQJ/HWjxeiEijORrxDA+qygWrTwbYalLDXLIGufdXY/GcljdfuT7d+Wj7h/SypKrepSp1JMTSH/0ytE+0Wg==", "train"=>{"name"=>"wasabi", "price"=>"2"}, "commit"=>"Create Train"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[36mTrain Create (0.4ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "wasabi"], ["price", 2], ["created_at", "2019-02-01 15:23:52.351848"], ["updated_at", "2019-02-01 15:23:52.351848"]]
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+Redirected to http://localhost:3000/trains/8
+Completed 302 Found in 5ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/trains/8" for 127.0.0.1 at 2019-02-01 15:23:52 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 23.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains/8" for 127.0.0.1 at 2019-02-01 15:25:35 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (106.7ms)
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `train_edit_path' for #<#<Class:0x007fb68d932ba0>:0x007fb68d9311b0>
+Did you mean?  train_path):
+    1: <h1><%= @train.name %></h1>
+    2: 
+    3: <%= link_to 'edit me', train_edit_path(@train) %>
+    4: 
+    5: <p>
+    6:   This train costs £<%= @train.price %>
+  
+app/views/trains/show.html.erb:3:in `_app_views_trains_show_html_erb__1574885593994513301_70211018005020'
+Started GET "/trains/8" for 127.0.0.1 at 2019-02-01 15:25:55 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 28ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains/8/edit" for 127.0.0.1 at 2019-02-01 15:25:57 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:21
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/_form.html.erb (2.8ms)
+  Rendered trains/edit.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 46ms (Views: 39.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/trains/8" for 127.0.0.1 at 2019-02-01 15:26:01 +0000
+Processing by TrainsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"60oIMTmeaZpcmlnee3PYLoNRWLLP/9EJnLind4T1DMJTCpjTA7GXmO0tuAYtj1e10hwfR5Pz5VS+qdjWDxWKNQ==", "train"=>{"name"=>"wasabi", "price"=>"7"}, "commit"=>"Update Train", "id"=>"8"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:26
+  [1m[36mTrain Update (0.5ms)[0m  [1m[33mUPDATE "trains" SET "price" = ?, "updated_at" = ? WHERE "trains"."id" = ?[0m  [["price", 7], ["updated_at", "2019-02-01 15:26:01.639395"], ["id", 8]]
+  ↳ app/controllers/trains_controller.rb:26
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:26
+Redirected to http://localhost:3000/trains/8
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/trains/8" for 127.0.0.1 at 2019-02-01 15:26:01 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/trains/8" for 127.0.0.1 at 2019-02-01 15:31:31 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:8
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 36ms (Views: 24.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trains/8/edit" for 127.0.0.1 at 2019-02-01 15:31:33 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:21
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/edit.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/dkaczmarczyk/Desktop/desktop/student_code/classHoles/16-rails-forms/trainshop/app/views/trains/edit.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/trains/edit.html.erb:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/trains/8/edit" for 127.0.0.1 at 2019-02-01 15:32:29 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:21
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/_form.html.erb (1.7ms)
+  Rendered trains/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 32ms (Views: 27.2ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/trains/8" for 127.0.0.1 at 2019-02-01 15:32:36 +0000
+Processing by TrainsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4axOQFwUX13RgHo5DM0UJhBVzHy9UB+iv97bbvE8K+NyyPycVeRa2LHVy/LOUBGYu1XY3DxqPb4Hk+UA93UmTg==", "commit"=>"get that train off the tracks", "id"=>"8"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:32
+  [1m[36mTrain Destroy (0.4ms)[0m  [1m[31mDELETE FROM "trains" WHERE "trains"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/trains_controller.rb:32
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:32
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 7ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-01 15:32:36 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 22.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-01 15:35:57 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (2.3ms)
+  Rendered trains/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 36ms (Views: 23.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/trains" for 127.0.0.1 at 2019-02-01 15:36:08 +0000
+Processing by TrainsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+xi3XlccRHK7EEHbJ40cQK9kVzcA9VZYrvC05emJ9zoG6kGC52NGAhLWsdUvmLktCaJLIWetwDFEALGP8vcyBw==", "train"=>{"name"=>"the rain train", "price"=>"99999999"}, "commit"=>"Create Train"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[36mTrain Create (0.4ms)[0m  [1m[32mINSERT INTO "trains" ("name", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "the rain train"], ["price", 99999999], ["created_at", "2019-02-01 15:36:08.954886"], ["updated_at", "2019-02-01 15:36:08.954886"]]
+  ↳ app/controllers/trains_controller.rb:16
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:16
+Redirected to http://localhost:3000/trains/9
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/trains/9" for 127.0.0.1 at 2019-02-01 15:36:08 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 28ms (Views: 20.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains/9/edit" for 127.0.0.1 at 2019-02-01 15:36:17 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/_form.html.erb (2.7ms)
+  Rendered trains/edit.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 50ms (Views: 41.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/trains/9" for 127.0.0.1 at 2019-02-01 15:36:25 +0000
+Processing by TrainsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5ub6CG7h8nP/wMS8slM3x6fwourXDb0BJEA8OptqUDfpIDtcUtrjauM4oCQieNzNTS445xs2XoviO3aXFLhqOQ==", "train"=>{"name"=>"the rain train", "price"=>"374"}, "commit"=>"Update Train", "id"=>"9"}
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:24
+  [1m[36mTrain Update (0.9ms)[0m  [1m[33mUPDATE "trains" SET "price" = ?, "updated_at" = ? WHERE "trains"."id" = ?[0m  [["price", 374], ["updated_at", "2019-02-01 15:36:25.258371"], ["id", 9]]
+  ↳ app/controllers/trains_controller.rb:24
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:24
+Redirected to http://localhost:3000/trains/9
+Completed 302 Found in 8ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/trains/9" for 127.0.0.1 at 2019-02-01 15:36:25 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/trains/9/edit" for 127.0.0.1 at 2019-02-01 15:36:27 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTrain Load (1.6ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/edit.html.erb within layouts/application
+  Rendered trains/_form.html.erb (3.0ms)
+  Rendered trains/edit.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 45ms (Views: 36.6ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/trains/9" for 127.0.0.1 at 2019-02-01 15:36:31 +0000
+Processing by TrainsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4ftiCpfVQo1qAKUfT0Ajot2oE7Y2pE8ni5KYxPDQ1UabZDExpnVL5y1XXTqI+JJAmMq8RN7vzbhHhLDgU6wlQA==", "commit"=>"get that train off the tracks", "id"=>"9"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trains_controller.rb:29
+  [1m[36mTrain Destroy (0.4ms)[0m  [1m[31mDELETE FROM "trains" WHERE "trains"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/trains_controller.rb:29
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trains_controller.rb:29
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-01 15:36:31 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 39ms (Views: 31.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-04 11:22:47 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.6ms)
+Completed 200 OK in 27ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-04 11:22:49 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 251ms (Views: 243.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trains/2" for 127.0.0.1 at 2019-02-04 11:22:59 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTrain Load (1.7ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 38.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/trains/3" for 127.0.0.1 at 2019-02-04 11:23:01 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains/4" for 127.0.0.1 at 2019-02-04 11:23:01 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:40
+  Rendering trains/show.html.erb within layouts/application
+  Rendered trains/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 38ms (Views: 31.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-04 11:23:02 +0000
+Processing by TrainsController#new as HTML
+  Rendering trains/new.html.erb within layouts/application
+  Rendered trains/_form.html.erb (13.7ms)
+  Rendered trains/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 60ms (Views: 52.9ms | ActiveRecord: 0.0ms)
+
+
