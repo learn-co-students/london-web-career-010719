@@ -1,0 +1,18 @@
+<h2><%= @owner.name %></h2>
+
+<h3>Cars</h3>
+<ul>
+    <% @owner.cars.each do |car|%>
+        <li>
+            <%= link_to "#{@owner.name}'s #{car.brand.name}", car_path(car)%>
+        </li>
+    <% end %>
+</ul>
+<h3>Brands</h3>
+<ul>
+    <% @owner.brands.each do |brand|%>
+        <li>
+            <%= link_to "#{brand.name}", brand_path(brand)%>
+        </li>
+    <% end %>
+</ul>

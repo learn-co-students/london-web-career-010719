@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CarWorkshop</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to "New car", new_car_path %>
+    <%= link_to "New owner", new_owner_path %>
+    <%= link_to "New brand", new_brand_path %>
+    <%= link_to "New mechanic", new_mechanic_path %>
+    <%= link_to "Cars", cars_path %>
+    <%= link_to "Owners", owners_path %>
+    <%= link_to "Mechanics", mechanics_path %>
+    <%= link_to "Brands", brands_path %>
+    <%= yield %>
+  </body>
+</html>

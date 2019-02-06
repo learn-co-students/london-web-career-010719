@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: one
+  owner: one
+  mechanic: one
+
+two:
+  brand: two
+  owner: two
+  mechanic: two
