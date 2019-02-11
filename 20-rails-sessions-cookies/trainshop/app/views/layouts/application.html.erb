@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <%= session.id %>
+
+    <% if session[:viewed_trains] %>
+      <%= session[:viewed_trains] %>
+    <% else %>
+      no trains viewed!
+    <% end %>
+
     <h1>
       <%= link_to 'Trainshop 🛤', trains_path %>
     </h1>

@@ -3,10 +3,29 @@ class TrainsController < ApplicationController
   before_action :find_conductors, only: [:new, :edit]
 
   def index
-    @trains = Train.all
+    # make sure the array exists
+    session[:viewed_trains] ||= []
+
+    trains_seen = session[:viewed_trains]
+
+    if trains_seen.length == 0
+      @trains = Train.all 
+    else
+      @trains = Train.all.select do |train|
+        !trains_seen.include? train.id
+      end
+    end
   end
 
   def show
+    # make sure the array exists
+    session[:viewed_trains] ||= []
+
+    # add the id in if it's not present in the
+    # viewed_trains array
+    if !session[:viewed_trains].include? @train.id
+      session[:viewed_trains] << @train.id
+    end
   end
 
   def new
