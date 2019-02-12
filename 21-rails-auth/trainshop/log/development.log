@@ -1398,3 +1398,1569 @@ Completed 200 OK in 55ms (Views: 44.8ms | ActiveRecord: 0.5ms)
   [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."conductor_id" = ? LIMIT ?[0m  [["conductor_id", 1], ["LIMIT", 11]]
   [1m[36mConductor Load (0.1ms)[0m  [1m[34mSELECT  "conductors".* FROM "conductors" ORDER BY "conductors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mTrain Load (0.1ms)[0m  [1m[34mSELECT "trains".* FROM "trains" WHERE "trains"."conductor_id" = ?[0m  [["conductor_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190212102625)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190212102625_create_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "admin" boolean, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190212102625_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190212102625"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "admin", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "daniel"], ["admin", 1], ["password_digest", "$2a$10$T9DLK4tI149RyfrXJWy7a.4qG7GvamQw4kCfSUUiCRpgUkgswx3.C"], ["created_at", "2019-02-12 10:29:31.635352"], ["updated_at", "2019-02-12 10:29:31.635352"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "admin", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "bob"], ["admin", 0], ["password_digest", "$2a$10$ZzlZgF2/WjbhUpAl97/fku6pHyZ/Af0P1OVgzfG4LOORqoRJ6/voe"], ["created_at", "2019-02-12 10:31:20.155801"], ["updated_at", "2019-02-12 10:31:20.155801"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-02-12 10:36:05 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.6ms)
+Completed 200 OK in 31ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 10:38:02 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 316ms (Views: 293.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2019-02-12 10:44:51 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"new"}
+Completed 406 Not Acceptable in 188ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (UsersController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.2) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.2) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.2) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.2) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.2) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.2) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/signup" for 127.0.0.1 at 2019-02-12 10:45:25 +0000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (138.5ms)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `users_path' for #<#<Class:0x007fa3ffb09af0>:0x007fa3ffb199c8>
+Did you mean?  user_path):
+    1: <h1>Signup</h1>
+    2: 
+    3: <%= form_for @user do |f| %>
+    4:   <%= f.label :name %>
+    5:   <%= f.text_field :name %>
+    6:   <%= f.label :password %>
+  
+app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb__4495180916293094738_70171173083220'
+Started GET "/signup" for 127.0.0.1 at 2019-02-12 10:46:41 +0000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 65ms (Views: 48.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-02-12 10:47:22 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMTfyThQqEQH1Vqe36Q/lXk9u0/trcmStLGQcovGknANFk5N42vG0SKgOhJrDdMbBaZnqeFHXB2XkaiNqQIDQA==", "user"=>{"name"=>"lucy", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "lucy"], ["password_digest", "$2a$10$o4SdNsbLIgbZheIC4ixnSuMr1z0Pr9zdExvdzl3DvaKmgeRRc8bfO"], ["created_at", "2019-02-12 10:47:39.540756"], ["updated_at", "2019-02-12 10:47:39.540756"]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 16756ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 10:47:39 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 53ms (Views: 45.6ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users/1" for 127.0.0.1 at 2019-02-12 10:49:08 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1><%= @user.name %>'s ticket page</h1>
+    2: 
+    3: TICKET SECRET
+    4: <h1>🚉</h1>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___3730741511816998047_70171215468820'
+Started GET "/users/1" for 127.0.0.1 at 2019-02-12 10:49:31 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 53ms (Views: 36.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2019-02-12 10:49:33 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 27.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 10:49:35 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 40ms (Views: 28.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 10:49:40 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 52ms (Views: 41.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 10:50:29 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 47ms (Views: 37.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-02-12 10:50:31 +0000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 65ms (Views: 32.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 10:50:33 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 41ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 10:50:56 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 45ms (Views: 36.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:00:51 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 44ms (Views: 34.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:00:53 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 45ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-02-12 11:00:54 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/logout" for 127.0.0.1 at 2019-02-12 11:01:23 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/logout" for 127.0.0.1 at 2019-02-12 11:02:07 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/logout" for 127.0.0.1 at 2019-02-12 11:02:10 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/logout" for 127.0.0.1 at 2019-02-12 11:02:15 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-02-12 11:02:17 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dkaczmarczyk/.rvm/gems/ruby-2.3.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 12ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:02:19 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 275ms (Views: 238.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:03:34 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-02-12 11:03:35 +0000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 70ms (Views: 44.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:03:37 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LE1Y3rBWawbgeYjpIKZBx0UK4/nSqsaE+3qFNJU1U65Vn8laa20Fk8UM6GWUD61JOZE/H95AUwvYWr3Lt/HCng=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:03:37 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:04:15 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 37ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:04:19 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 73ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:04:34 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:04:36 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bbdVnZ3e8z4xxJ6e75jbaep5dlMhscZOC9jLS/0H0wxLX7agnW/0aF3CrhFIW+DJ7LCL/Kpf3uXTNLy1B0aiMg==", "name"=>"lucy", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "lucy"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 74ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:04:36 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:04:47 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1Db5wC/OztuSLRlDwdTuc5k0fzi/CBmsiARwQZ90GBet5GhE9PWgTrdYec91fQL95a+j3rPijCOrJEi+vbCJJw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:04:47 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 35ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:06:09 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 41ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:06:12 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 66ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:06:14 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"15AiFfPW8xRYGwJA8CpLvsaXG1tICrLtIxVgDAnZIxLxeMEo82f0QjQdMs9X6XAewF7m9MPkqkb7+Rfy85hSLA==", "name"=>"lucy", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "lucy"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 64ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:06:14 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:06:48 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 212ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<#<Class:0x007f9f8a023060>:0x007f9f875e8ca0>):
+    19:         <%= link_to 'login', login_path %>
+    20:       <% else %>
+    21:         <%= link_to "log out", logout_path, method: "post" %>
+    22:         <%= link_to "my account", user(session[:user_id]) %>
+    23:       <% end %>
+    24:     </div>
+    25: 
+  
+app/views/layouts/application.html.erb:22:in `_app_views_layouts_application_html_erb__2339436621646702713_70161573889460'
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:06:54 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:06:55 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 54ms (Views: 45.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:06:58 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.5ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 55ms (Views: 44.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:07:08 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OZ1db86ECv8DRB3APwqNgMLUv15R9r5S8sqKvHAiVVdAT8zrFb9kaiYxfUyLo2EOvk9juF0cK93R6rJDUubEZw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:07:08 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 38ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:07:22 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 49ms (Views: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:07:28 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pbHw5ZybPsXHiICvH0tIOGsjaDiyaWdnmjTDpQxqswuDWRPYnCo5k6uOsCC4iHOYbeqVlzmHf8xC2LRb9ivCNQ==", "name"=>"dan", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "dan"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:07:28 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:07:34 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ytjF6FYeHXuqR4G/QbklAkSHkeyl84fBv9tnIcpSQmizClRsjSVz7o8y4TP1EMmMOBxNCqkZEk6c+1/e6JbTWA==", "name"=>"dan", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "dan"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:07:34 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 38ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:09:18 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YuoA4eh+SiqEIRcHBJcZgQ5bcPDyEAM+SvC0soHJSLQbOJFlM0Ukv6FUd4uwPvUPcsCsFv76lrFp0IxNow3ZhA==", "name"=>"dan", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "dan"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:09:18 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:09:43 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gWFh2bc0a/CI8L3HOwulh/fH6SGmoBs2YEVlMreQ3Vf4s/BdbA8FZa2F3UuPokkJi1w1x6pKjrlDZV3NlVRMZw==", "name"=>"daniel", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "daniel"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 63ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:09:43 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 33ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:14:25 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 56ms (Views: 46.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:15:07 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 49ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:15:24 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 37ms (Views: 33.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:16:36 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:16:50 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:16:52 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eI5DtPdPomyfSgy34KkgBRpLOB2RV7DpKxJK2UlNvFABXNIwLHTM+bo/bDtUAMyLZtDk+529JWYIMnIma4ktYA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:16:52 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-02-12 11:16:53 +0000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 47ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-02-12 11:16:59 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LM//V65X36sOW8kQH4Fs5WaY6jSEnnomeY+PjUAK7OxY1/dsILZoFYEMhavy41hgjLzaMKFbgn8kX8tfOXzasg==", "user"=>{"name"=>"bobert", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:15
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "bobert"], ["password_digest", "$2a$10$4VutzjocB1cJPDUcGPhbwuO3pEtuZnt0mPw4LjNcyND59vmai3Z/m"], ["created_at", "2019-02-12 11:17:10.236598"], ["updated_at", "2019-02-12 11:17:10.236598"]]
+  ↳ app/controllers/users_controller.rb:15
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:15
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 10554ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:17:10 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 30ms (Views: 25.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:17:11 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 57ms (Views: 48.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:18:01 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 61ms (Views: 50.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:18:02 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 53ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:18:06 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"91IOnn/IiK+1ZTj5n5uew5XcQ7VlDYtROzhrXPIU5+nRuu2jf3mP+dljCHY4WKVjkxW+Gu7jk/rj1ByiCFWW1w==", "name"=>"bobert", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "bobert"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 67ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:18:07 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 44ms (Views: 40.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:18:08 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9CYvdgl3g6T2epyJ3XOqN3iDr5Y5GVO5J0TQAkLkBEiN9L7y0kztMdMP/AVp2ka5BBhzcDXzxjYEZOj9YCCVeA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:18:08 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 43ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-02-12 11:18:09 +0000
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 58ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-02-12 11:18:13 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t0yVh5NRpDzAvNU3LwZRxPUmSGRzakm1oseEDmGYrEjDVJ28HbATgk/rmYzCZGVBHwJ4YFavsez/F8DcGO6aFg==", "user"=>{"name"=>"jackson", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "jackson"], ["password_digest", "$2a$10$gYN2dJ0Mz7aFvwhuJZbf/.motch9lLpNDz8LZ9OvBngOSDIeREY3u"], ["created_at", "2019-02-12 11:18:13.617272"], ["updated_at", "2019-02-12 11:18:13.617272"]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 68ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:18:13 +0000
+Processing by TrainsController#index as HTML
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 34ms (Views: 29.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:21:28 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (8.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 53ms (Views: 33.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:21:33 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oEF8InorKsB/jdqj4Mh37vnBDZwxhdHezfqXCSDYG0bZk+2moRBEVVr4ui9UYZtghVrRej1vRFHu2q/2AhyKdg=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:21:33 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:21:50 +0000
+Processing by TrainsController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:21:50 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 44ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:21:57 +0000
+Processing by TrainsController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:21:57 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/2" for 127.0.0.1 at 2019-02-12 11:21:59 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:42
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mPassenger Load (0.4ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" INNER JOIN "journeys" ON "passengers"."id" = "journeys"."passenger_id" WHERE "journeys"."train_id" = ?[0m  [["train_id", 2]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 72ms (Views: 63.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:04 +0000
+Processing by TrainsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:23:04 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:05 +0000
+Processing by TrainsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:23:05 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 47ms (Views: 37.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:09 +0000
+Processing by TrainsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:23:09 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 31ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-12 11:23:12 +0000
+Processing by TrainsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:23:12 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trains/3" for 127.0.0.1 at 2019-02-12 11:23:15 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:42
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:23:15 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:23:22 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 45ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:23:25 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Zp0+1T+4JOFiKM6ycojxcGt5FJxKjM561wPKPrr6d5VAdd3oPwkjtw4u/j3VS8rQbbDpM8Fi1tEP773AQLsGqw==", "name"=>"lucy", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "lucy"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 62ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:25 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 35ms (Views: 29.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:27 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 41ms (Views: 33.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/trains/1" for 127.0.0.1 at 2019-02-12 11:23:29 +0000
+Processing by TrainsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/show.html.erb within layouts/application
+  [1m[36mConductor Load (0.2ms)[0m  [1m[34mSELECT  "conductors".* FROM "conductors" WHERE "conductors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/trains/show.html.erb:10
+  [1m[36mPassenger Load (0.3ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" INNER JOIN "journeys" ON "passengers"."id" = "journeys"."passenger_id" WHERE "journeys"."train_id" = ?[0m  [["train_id", 1]]
+  ↳ app/views/trains/show.html.erb:20
+  Rendered trains/show.html.erb within layouts/application (29.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 76ms (Views: 62.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/trains/1/edit" for 127.0.0.1 at 2019-02-12 11:23:30 +0000
+Processing by TrainsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT  "trains".* FROM "trains" WHERE "trains"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trains_controller.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/edit.html.erb within layouts/application
+  [1m[36mConductor Load (0.2ms)[0m  [1m[34mSELECT "conductors".* FROM "conductors"[0m
+  ↳ app/views/trains/_form.html.erb:14
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers"[0m
+  ↳ app/views/trains/_form.html.erb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "passengers"."id" FROM "passengers" INNER JOIN "journeys" ON "passengers"."id" = "journeys"."passenger_id" WHERE "journeys"."train_id" = ?[0m  [["train_id", 1]]
+  ↳ app/views/trains/_form.html.erb:19
+  Rendered trains/_form.html.erb (103.5ms)
+  Rendered trains/edit.html.erb within layouts/application (110.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 160ms (Views: 144.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:31 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.4ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 57ms (Views: 46.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/trains/new" for 127.0.0.1 at 2019-02-12 11:23:31 +0000
+Processing by TrainsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/new.html.erb within layouts/application
+  [1m[36mConductor Load (0.3ms)[0m  [1m[34mSELECT "conductors".* FROM "conductors"[0m
+  ↳ app/views/trains/_form.html.erb:14
+  [1m[36mPassenger Load (0.2ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers"[0m
+  ↳ app/views/trains/_form.html.erb:19
+  Rendered trains/_form.html.erb (9.7ms)
+  Rendered trains/new.html.erb within layouts/application (15.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 57ms (Views: 47.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:32 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 53ms (Views: 42.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:23:43 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 45ms (Views: 34.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:23:44 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 41ms (Views: 31.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2019-02-12 11:23:55 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 38ms (Views: 29.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:28:49 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (28.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 78ms (Views: 57.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:29:57 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (11.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 64ms (Views: 44.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:29:59 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 41ms (Views: 34.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:30:01 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 49ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2019-02-12 11:30:07 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Redirected to http://localhost:3000/trains
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:30:07 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.3ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (3.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 43ms (Views: 36.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:30:12 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R0xB8DNaJGXCoABzxpfVBJuuPg/QFrYjKIaxkc1SZvM+ntB06GFK8OfVYP9yPjmK5zXi6dz8I6wLpolu75b3ww=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:30:12 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 39ms (Views: 34.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:30:15 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GwbsHH4QTwuNYdXXEWCdBT9w3B+GEVWQA0uk7IThL0Ji1H2YpSshnqgUtVulyXGLQ+sA+Yr7wB8ga5wTpiW+cg==", "name"=>"daniel", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "daniel"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 66ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:30:15 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 32ms (Views: 27.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-02-12 11:30:17 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 51ms (Views: 40.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:30:22 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 40ms (Views: 31.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:32:09 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 44ms (Views: 28.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-02-12 11:32:12 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 53ms (Views: 44.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:32:16 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 56ms (Views: 40.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:32:20 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FiqeLLRZokEtjxuo46SpwFQMhTqheUtZEwKA+OO3pt1v+A+ob2LM1Aj6eyRXDUVOKJdZ3K2T3tYwIrgHwXM37Q=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:32:20 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 30ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-02-12 11:32:23 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zXrmc3pmfdXE17ziTc8jq7zOKNZOeXmrdg/kejmDUla0qHf3oV0TQOGi3G75Zs8lwFX0MEKT7CRVL9yFG0fDZg==", "name"=>"lucy", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "lucy"], ["LIMIT", 1]]
+  ↳ app/controllers/concerns/sessions_controller.rb:9
+Redirected to http://localhost:3000/trains
+Completed 302 Found in 63ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/trains" for 127.0.0.1 at 2019-02-12 11:32:23 +0000
+Processing by TrainsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendering trains/index.html.erb within layouts/application
+  [1m[36mTrain Load (0.2ms)[0m  [1m[34mSELECT "trains".* FROM "trains"[0m
+  ↳ app/views/trains/index.html.erb:6
+  Rendered trains/index.html.erb within layouts/application (7.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 39ms (Views: 30.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2019-02-12 11:32:25 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 54ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-02-12 11:32:55 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CeUQp1Cgy3WP4R+PX+1xU5a9OYfaAsWJOpekduUZaDtwN4Eji5ul4KqUfwPrRJ3d6iblYdboUAYZt5yJx935Cw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-12 11:32:55 +0000
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+

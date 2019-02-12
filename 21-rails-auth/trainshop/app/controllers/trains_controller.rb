@@ -1,6 +1,7 @@
 class TrainsController < ApplicationController
   before_action :find_train, only: [:edit, :show, :update, :destroy]
   before_action :find_conductors, only: [:new, :edit]
+  before_action :require_login, only: [:index, :show, :new, :create, :edit]
 
   def index
     @trains = Train.all
@@ -43,5 +44,9 @@ class TrainsController < ApplicationController
 
   def find_conductors
     @conductors = Conductor.all
+  end
+
+  def require_login
+    authorized?
   end
 end

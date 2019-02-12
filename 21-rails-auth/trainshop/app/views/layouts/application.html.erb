@@ -10,9 +10,27 @@
   </head>
 
   <body>
+   <div>
+      <% if !logged_in? %>
+        <%= link_to 'signup', signup_path %>
+        <%= link_to 'login', login_path %>
+      <% else %>
+        <span>hello, <%= current_user.name %></span>
+        <%= link_to "log out", logout_path, method: "post" %>
+        <%= link_to "my account", user_path(current_user.id) %>
+      <% end %>
+    </div>
+
     <h1>
       <%= link_to 'Trainshop 🛤', trains_path %>
     </h1>
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e|  %>
+        <p style="color: red"> <%= e %> </p>
+      <% end %>
+    <% end  %>
+
     <%= yield %>
   </body>
 </html>

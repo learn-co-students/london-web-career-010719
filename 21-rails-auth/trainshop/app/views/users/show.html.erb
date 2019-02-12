@@ -1,0 +1,16 @@
+<h1><%= @user.name %>'s ticket page</h1>
+
+TICKET SECRET
+<h1>🚉</h1>
+
+<% if @admin_panel %>
+  <ul>
+    <% @admin_panel.each do |u| %>
+      <li>
+        <%= link_to u.name, u %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'go back', trains_path %>
