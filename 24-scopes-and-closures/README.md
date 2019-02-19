@@ -1,454 +1,332 @@
-# Scope and closures
 
-![](https://media.giphy.com/media/sOGgevbtBDYKQ/giphy.gif)
-
-## Objectives
-
-### Variables scope
-
-- Variable scope in Ruby:
-
-```ruby
-name = 'andrew'
-
-def say_name
-  puts name
-end
-
-say_name # what will happen 🤔
-
-#=> undefined local variable or method `name` for main:Object (NameError)
-```
-
-- However, if we make the variable global, or pass it in as an argument the code above will work:
-
-```ruby
-# WORKS!
-$name = 'andrew' #global vars in ruby are declared w/ $
-
-def say_name
-  puts $name
-end
-
-say_name # what will happen 🤔
-#=> 'andrew'
-```
-
-```ruby
-# WORKS!
-name = 'andrew'
-
-def say_name(name_arg)
-  puts name_arg
-end
-
-say_name(name) # what will happen 🤔
-#=> 'andrew'
-```
-
----
-- Variable Scope in JavaScript: Lexical scope means that scope is defined by author-time decisions of where functions are declared. [From You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
-
-- From the [MDN Article on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures): "The word 'lexical' refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Nested functions have access to variables declared in their outer scope."
-
-- In other words, scope in JavaScript is determined by _where_ variables are defined in our code. There can also be a variety of scopes in our code, ranging from very local to global.
-
-- Each scope is like its own 'bucket' in JavaScript––our variables live within a space and can reach out to an outer scope. Think of scope as moving in one direction––functions can reach "up" to variables in their outer scope, but not the other way around:
-
-```javascript
-var name = 'jon'
-
-function sayName() {
-  console.log(name)
-}
-
-sayName() // 'jon'
-```
-
-- Within the function `sayName`, there is no variable called `name`. However, this variable is declared _outside_ the function. `sayName` will still have access to variables outside its own scope. We can think of scope as being one way; a function can reach outside it's local scope, but not the other way around:
-
-```javascript
-function sayName() {
-  var name = 'garry'
-  console.log(name)
-}
-
-sayName() // 'garry'
-
-console.log(name) // name is not defined; name is scoped within the sayName fn
-```
-
-- Furthermore, JavaScript will look at (resolve) the most local scope before looking up:
-
-```javascript
-var name = 'andrew' //global var
-
-function sayName() {
-  var name = 'garry' // local to sayName
-  console.log(name)
-}
-
-sayName() // 'garry'
-```
-
-- Because the `name` variable is declared within `sayName`, the output of the function will be 'garry'.
-
----
-
-### JS Scopes: `Global`, `Function`, `Block`:
-
-- There are three main types of scopes in JS:
-  - `Global`: a variable declared in the global scope; outside a function, outside a block, outside an object. These variables are _globally accessible_ meaning they can be read _anywhere_ in your code.
-
-```javascript
-var name = 'my global name'
-```
-
-- `Function` scope: variables are confined to the functions in which they were declared. These variables are _not accessible_ in the global scope. They can only be accessed within the function or any scope that is 'lower' on the scope chain, or more local (more on that later)
-
-```javascript
-function fnScope() {
-  var name = 'a local name'
-}
-```
-
-- `Block` scope: much like a function, variables defined within a block are only accessible within that block or in more local scopes [unless you use the `var` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block):
-
-```javascript
-{
-  let blockVar = 'local to this block'
-}
-console.log(blockVar) //Uncaught ReferenceError: blockVar is not defined
-
-```
-
-  - Important side note about the code above: depending on the context, `{}` (curlyboys™️) can be a function body, block, or an object literal `{ pizza: 'hut', key: 'value' }`
-
-  ---
-
-### JS Variables–– `var`, `let`, `const`
-
-- In JavaScript, there are three keywords we can use to declare variables: `var`, `let`, and `const`. (We can also omit the keyword, which will make a variable **global**):
-
-```javascript
-function forgotVar() {
-  donutFlavor = 'glazed' //without var/let/const, donutFlavor will be GLOBAL
-}
-
-console.log(donutFlavor) // glazed
-```
-
-- Variables declared with `var` can be reassigned and **declared** as many times as we'd like (they will also be hoisted, but we'll discuss that later):
-
-```javascript
-var donutFlavor = 'jelly' //declares var
-
-donutFlavor = 'sprinkles' //reassigns var
-
-var donutFlavor = 'chocolate' //redeclares var
-
-console.log(donutFlavor) // 'chocolate'
-```
-
-- Variables declared with `let` can be **reassigned** as many times as we'd like but cannot be **redeclared**:
-
-```javascript
-let animal = 'dog' //declare animal variable
-
-animal = 'ferret' //reassign animal to another value
-
-let animal = 'giraffe' //attempt to redeclare animal
-// Uncaught SyntaxError: Identifier 'animal' has already been declared
-```
-
-- Variables declared with `const` can neither be reassigned nor redeclared, they are **constants**:
-
-```javascript
-const person = 'carl' //declare and assign a new variable
-
-person = 'Carl' //Uncaught TypeError: Assignment to constant variable.
-
-const person = 'CARL' //Uncaught SyntaxError: Identifier 'carl' has already been declared
-
-```
-
-- As a rule of thumb, if you're writing modern JavaScript ([ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla)), I would avoid using `var` because it can be redeclared and reassigned at any time, which can cause some unexpected and confusing bugs. Stick to `let` and `const`.
-
-### Hoisting
-
-- "Because variable declarations (and declarations in general) are processed before any code is executed, declaring a variable anywhere in the code is equivalent to declaring it at the top. This also means that a variable can appear to be used before it's declared. This behavior is called 'hoisting', as it appears that the variable declaration is moved to the top of the function or global code." - [MDN Article on `var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting)
-  - While JavaScript is being compiled, functions declared with the `function` keyword and variables declared with the `var` keyword are "hoisted" to the top of whatever scope they are in. **Declarations are not phyisically moved to the top of whatever scope they're in**. Instead, they are processed first (allocated memory) _then_ assigned a value.
-
-```javascript
-bark() // 'woof'
-
-function bark() {
-  console.log('woof')
-}
-```
-
-- Notice that we are able to invoke the `bark` function before it is declared. This is because javascript will allocate memory to this function prior to executing the code in the file. Contrast this with ruby:
-
-```ruby
-not_hoisted #attempt to invoke the method before it is declared
-
-def not_hoisted
-  puts "Will this method execute 🤔"
-end
-
-
-#=>  undefined local variable or method `not_hoisted` for main:Object (NameError)
-```
-
-- Let's see how javascript handles variable hoisting:
-
-```javascript
-console.log(dog)
-
-var dog = 'penny' //undefined
-
-```
-
-- From the [MDN Article on Hosting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting): JavaScript only hoists declarations, not initializations. If a variable is declared and initialized after using it, the value will be undefined.
-
-- We can _**imagine**_ that javascript is 'hoisting' or 'lifting' our variables up, even though this is not what is technically happening:
-
-```javascript
-var dog; //declare dog but do not assign it (value will be undefined)
-
-console.log(dog) // undefined
-
-dog = 'penny' //assign a value to dog
-```
-
-- While it may be helpful to imagine that the above is happening, **javascript does not actually move variables around in your code**.
-
-- From the [MDN Article on Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting): "Conceptually, for example, a strict definition of hoisting suggests that variable and function declarations are physically moved to the top of your code, but this is not in fact what happens. Instead, the variable and function declarations are put into memory during the compile phase, but stay exactly where you typed them in your code."
-
-- However, if you declare the variable after it is used, but initialize it beforehand, it will return the value:
-
-```javascript
-num = 6
-console.log(num) // 6
-var num
-```
-
-- Notice that we are **assigning** the variable _then_ using it. By the time our `console.log` is executed, `num` will have been assigned.
-
-- This is no the case for variables declared with `let` and `const`, however:
-
-```javascript
-console.log(bears)//Uncaught ReferenceError: bears is not defined
-
-let bears = 'big and scary and dangerous'
-```
-
-```javascript
-console.log(donut) //Uncaught ReferenceError: donut is not defined
-
-const donut = 'maple bacon'
-```
-
-- Variable scope rules are _mostly_ unchanged for `let` and `const`:
-
-```javascript
-let fruit = 'banana'
-function snack() {
-  console.log(fruit)
-}
-
-snack() //banana
-```
-
-```javascript
-let pizza = 'outer pizza is global pizza'
-function eatPizza() {
-  let pizza = 'inner pizza is pizza hut stuffed crust™️'
-  console.log(pizza)
-}
-
-eatPizza() //inner pizza is pizza hut stuffed crust™️
-```
-
-### First Class Functions and Closures
-
-- From the [MDN Article on First Class Functions](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function): "A programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable."
-
-- Assigning functions to variables:
-
-```javascript
-var eatFood = function(food) {
-  console.log(`Eating ${food}`)
-}
-
-eatFood('pizza') //Eating pizza
-eatFood('donuts') //Eating donuts
-eatFood('salad') //Eating salad
-```
-
-- Also note that functions declared with the `function` keyword and/or with `var` can be reassigned and redeclared at any time:
-
-```javascript
-function sayHi() {
-  console.log('Hello!!!!')
-}
-
-function sayHi() {
-  console.log('Goodbye!')
-}
-
-var sayHi = function() {
-  console.log('Something totally unexpected is being returned by this function')
-}
-
-sayHi() //Something totally unexpected is being returned by this function
-```
-
-- Be cautious of this as you may accidentally reassign a function. Instead, we can rely on the `const` keyword to declare functions:
-
-```javascript
-const worksAsExpected = function() {
-  console.log('An expected response!')
-}
-
-worksAsExpected() //'An expected response!'
-
-function worksAsExpected() {
-  console.log('UH OH SPAGHETTI-O')
-} //Uncaught SyntaxError: Identifier 'worksAsExpected' has already been declared
-
-const worksAsExpected = function() {
-  console.log('ALSO NOT MY ORIGINAL FUNCTION')
-} //Uncaught SyntaxError: Identifier 'worksAsExpected' has already been declared
-
-worksAsExpected = function() {
-  console.log('lol whoops')
-} //Uncaught TypeError: Assignment to constant variable.
-```
-
-- Remember that functions are _just like any other object_ in JavaScript. I can assign a `String`, `Object`, `Array`, `Number`, etc to a variable. I can do the same thing with a `Function`
-
----
-
-- Functions can also be passed to other functions as arguments (this is because functions are first class objects). These are referred to as **callbacks**
-
-- From the [MDN Article on Callbacks](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function): "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action."
-
-```javascript
-function returnThinker() {
-  return '¿🤔?'
-}
-
-function logCallBack(callbackFn) {
-  console.log(callbackFn())
-}
-
-
-logCallBack(returnThinker) //'¿🤔?'
-```
-
-- `logCallBack` is a function that is expecting **another function as an argument**. When `logCallBack` is invoked, it will simply `console.log` the return value of the callback passed in as an argument, which happens to be `returnThinker` in the example above.
-
-
-![🤔](https://media.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif)
-
----
-
-#### Functions that _return other functions_ 🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
-
-
-```javascript
-function outerFn() {
-  return function innerFn() {
-    console.log('haha i am an inner function lol')
-  }
-}
-outerFn()() //haha i am an inner function lol
-```
-
-- Notice that we have to invoke **twice**. Look at the code above. `outerFn` returns a function. Invoking `outerFn` will return a reference to a function, `innerFn`. In order to call `innerFn`, we need to invoke the return value of `outerFn`, hence the `outerFn()()` syntax
-
-![](https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif)
-
-- Notice that the inner function has no name. This is referred to as an _anonymous function_ in JavaScript.
-
-
----
-
-- The same way that a function can return a string, object, array, or integer, a function can also **_return another function_**. Again, this is because functions are first class objects in JavaScript just like _any other object_.
-
-- According to the [MDN Article on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures), a _closure_ is the combination of a function and the lexical environment within which that function was declared:
-
-```javascript
-function closure() {
-  var cheese = 'cheddar'
-
-  return function() {
-    return `I like to eat ${cheese}`
+# Callbacks and Closures
+
+### Private variables with closures
+```js
+const makeCounter = () => {
+  // this variable can only be accessed within this scope
+  let counter = 0
+
+  // these functions are within this scope
+  // therefore, they both have access to *counter*
+  const up = () => ++counter
+  const down = () => --counter
+
+  // we return an object with the 2 functions as keys
+  // so when we call these functions in the outside world
+  // they will still have access to that counter
+  // but nothing else can access it anymore
+  return {
+    up: up,
+    down: down
   }
 }
 
-closure() //function
+// we create 2 different counters
+const counterA = makeCounter()
+const counterB = makeCounter()
 
-closure()() // "I like to eat cheddar"
+counterA.up()
+// 1
 
-console.log(cheese) //Uncaught ReferenceError: cheese is not defined
+counterB.up()
+// 1
+
+// each counter object has its own counter variable
+// so they can go up and down independently of each other
+// and because the counters are private
+// nobody can come in and mutate them, so they are safe
 ```
 
-- Notice that the inner function above has access to the local variable `cheese`, which is not accessible outside the lexical scope of the `closure` function.
+### Function Composition
+* Using the return values of functions as arguments to other functions
 
-- From [The MDN Article on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures): "The word 'lexical' refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Nested functions have access to variables declared in their outer scope."
+  ```js
+  // Composition taking the form f(g(x)); uses return value of g(x) as the argument
 
-- From [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS/blob/31e1d4ff600d88cc2ce243903ab8a3a9d15cce15/scope%20%26%20closures/ch5.md), "a closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope."
-
-![x to the z xzibit on callbacks](https://kevhuang.com/content/images/2015/07/xzibit-loves-callbacks.png)
-
----
-
-- This is one of the most powerful features of javascript and one of the reasons why the language is so amazing. We can write a function that can create _other functions_:
-
-```javascript
-function multiplyByN(outerNum) {
-  return function(n) {
-    return outerNum * n
+  function decimalToPercent(decimal) {
+    return decimal * 100.0;
   }
-}
 
-const multiplyByTen = multiplyByN(10)
-const multiplyByFive = multiplyByN(5)
-const multiplyByTwo = multiplyByN(2)
+  // y = g(x)
+  // f(y)
+  let returnValue = decimalToPercent(0.5);
+  console.log(returnValue); // => 50
 
-multiplyByTen(5) // 50
-multiplyByTen(10) // 100
+  //Same thing, with more composition: f(g(x))
+  console.log(decimalToPercent(0.5)); // => 50
+  ```
 
-multiplyByFive(5) //25
-multiplyByFive(10) //50
+* Passing a function as a callback to another function
 
-multiplyByTwo(2) //4
-multiplyByTwo(10) //20
-```
+  ```js
+  //Composition taking the form f(g)(x); uses g itself as the argument
 
-- We've created one function to rule them all. `multiplyByN` allows us to construct other multiplying functions.
+  function multiplyThenDo(num1, num2, callback) {
+    let product = num1 * num2;
+    return callback(product);
+  }
 
-![science](https://media.giphy.com/media/fqIBaMWI7m7O8/giphy.gif)
+  function addFive(num) {
+    return num + 5;
+  }
+
+  function square(num) {
+    return num * num;
+  }
+
+  multiplyThenDo(2, 3, addFive); // => 11
+  multiplyThenDo(2, 3, square); // => 36
+  multiplyThenDo(2, 3, console.log); // => Logs "6"
+
+  //Take as many callbacks as needed
+
+  function doThisThenDoThatToFive(callback1, callback2) {
+    let result = callback1(5);
+    return callback2(result);
+  }
+
+  doThisThenDoThatToFive(addFive, square) // => 100
+  doThisThenDoThatToFive(square, addFive) // => 30
+
+  ```
+
+### Callbacks in Iterators
+Students should be familiar with the differences between the iterators through their experience with Ruby, but feel free to remind the students of these.
+
+* Iterators such as `.map`, `.forEach`, `.filter`, and `.find` are the most common use-cases for callbacks.
+
+  ```js
+
+  const people = ["Laura", "Natalie", "Matt"];
+  const numbers = [78, 49, 32, 45];
+
+  function sayIt(element) {
+    console.log(element);
+  }
+
+  people.forEach(sayIt); // => Logs "Laura", "Natalie", and "Matt"
+  numbers.forEach(sayIt); // => Logs "78", "49", "32", and "45"
+
+  function yellIt(element) {
+    return element + "!";
+  }
+
+  people.map(yellIt); // => ["Laura!", "Natalie!", "Matt!"]
+  numbers.map(yellIt); // => ["78!", "49!", "32!", "45!"]
+
+  //Writing inline anonymous functions. It might be useful to remind them of the differences in arrow function syntax
+
+  people.forEach(name => console.log(`My name is ${name}`)); // => Logs "My name is Laura", "My name is Natalie", and "My name is Matt"
+  numbers.map(num => num + 10); // => [88, 59, 42, 55]
+
+  ```
+* All iterators can pass up to three arguments: the element, the index of that element, and the original array
+
+  ```js
+  const theBox = ["Laura", "Natalie", "Matt"];
+
+  function whatsInTheBox(element, index, array) {
+    console.log(`${index+1}. ${element}`);
+    console.log(array);
+  }
+
+  theBox.forEach(whatsInTheBox); // => Logs "1. Laura" and "["Laura", "Natalie", "Matt"]"; Logs "2. Natalie" and "["Laura", "Natalie", "Matt"]"; Logs "3. Matt" and "["Laura", "Natalie", "Matt"]"
+
+  ```
+
+### Higher Order Functions
+It is useful to explain that students have already been exposed to higher order functions: any function that **takes** and/or **returns** a function (callback) as an argument is a HOF. This means that `.map`, `.forEach`, etc., as well as functions written in the first portion of the lecture were HOFs.
+
+* Higher order function that takes a callback
+
+  ```js
+  //Higher order function;
+  function withFormatting(sentence, format) {
+    return format(sentence);
+  }
+
+  function capitalize(string) {
+    return string[0].toUpperCase() + string.slice(1, string.length);
+  }
+
+  function camelCase(string) {
+    const words = [];
+
+    string.split(" ").forEach((word, index) => {
+      if (index !== 0) {
+        words.push(capitalize(word));
+      } else {
+        words.push(word);
+      }
+    })
+    return words.join("");
+  }
+
+  withFormatting("is that a camel?", capitalize); // => "Is that a camel?"
+  withFormatting("no this is a camel", camelCase); // => "noThisIsACamel"
+
+  ```
+
+* Higher order function that returns a function
+
+  ```js
+  function generateECardMaker(greeting) {
+    return function(person) {
+      return `${person} would like to tell you ${greeting}`;
+    }
+  }
+
+  let sayHey = generateECardMaker("Hey");
+  let sayMerryChristmas = generateECardMaker("Merry Christmas");
+  let sayYouSmell = generateECardMaker("You smell");
+
+  sayHey("Laura"); //=> "Laura would like to tell you Hey"
+  sayHey("Ashlee"); // => "Ashlee would like to tell you Hey"
+  sayMerryChristmas("Laura"); // => "Laura would like to tell you Merry Christmas
+  sayYouSmell("Laura"); // => "Laura would like to tell you You smell"
+
+  ```
+
+* Higher order function that takes a callback **and** returns a function
+
+  ```js
+  function formatMultiplication(format) {
+    return function(num1, num2) {
+      return format(num1 * num2);
+    }
+  }
+
+  function report(value) {
+    return `Your new number is ${value}`;
+  }
+
+  function disappointed(value) {
+    return `Oh no...it looks your number is ${value}...`
+  }
+
+  const disappointedMultiplication = formatMultiplication(disappointed);
+
+  disappointedMultiplication(4, 5); // => "Oh no...it looks your number is 20..."
+  disappointedMultiplication(7, 2); // => "Oh no...it looks your number is 14..."
+
+  const reportMultiplication = formatMultiplication(report);
+  reportMultiplication(4, 5); // => "Your new number is 20"
+  reportMultiplication(7, 2); // => "Your new number is 14"
 
 
----
+  //Ask them to explain granularly what happens in the following code:
+  formatMultiplication(disappointed)(4, 5) // =>  "Oh no...it looks your number is 20..."
 
-### External Resources
+  ```
 
-- [MDN Article on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
-- [MDN Article on Block Scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block)
-- [MDN Article on Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
-- [MDN Article on `var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
-- [MDN Article on First Class Functions](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function)
-- [MDN Article on Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
-- [MPJ Video on Closures](https://www.youtube.com/watch?v=CQqwU2Ixu-U)
-- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
-- [You Don't Know JS Scope and Closures](https://github.com/getify/You-Dont-Know-JS/tree/31e1d4ff600d88cc2ce243903ab8a3a9d15cce15/scope%20%26%20closures)
-- [Temporal Dead Zone](https://wesbos.com/temporal-dead-zone/)
-- [Air BnB JS StyleGuide](https://github.com/airbnb/javascript)
-- [MDN Article on ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_2015_support_in_Mozilla)
+**Group Exercise** ~10m
 
+This is a great opportunity to test their understanding of higher order functions by having them build a custom iterator using a `.for` loop. `.map` should look like the following:
 
-![curly bois](https://i.imgur.com/ZwfLpVW.jpg)
+  ```js
+    function customMap(array, callback) {
+      let final = [];
+      for (let index = 0; index < array.length; index++) {
+        final.push(callback(array[index], index, array))
+      }
+      return final;
+    }
+  ```
+
+### Private Variables Using Closures
+A closure is a higher order component that makes use of the lexical environment to contain values in memory. The above examples are all closures - begin this part of lecture with asking the students which values are contained in memory in the previous example. (`format` retains its value)
+
+  ```js
+  function generateCounter() {
+    let counter = 0;
+    console.log(`Initializing counter at ${counter}`)
+    return function() {
+      console.log(++counter);
+    }
+  }
+
+  //Call function to generate a counter function
+  let counterOne = generateCounter(); //=> Logs "Initializing counter at 0"
+
+  //Call function; explain that the value of `counter` is modified when calling `counterOne` because `counterOne` sees the same point in memory for `counter` every time it is called
+  counterOne(); // => Logs "1"
+  counterOne(); // => Logs "2"
+  counterOne(); // => Logs "3"
+  counterOne(); // => Logs "4"
+
+  //Create another instance of a counter
+  let counterTwo = generateCounter(); // => Logs "Initializing counter at 0"
+
+  //A fresh count is started; this instance of a counter sees a different `count` which refers to a different point in memory than the `count` in `counterOne`
+  counterTwo(); // => Logs "1"
+  counterTwo(); // => Logs "2"
+
+  //`counter` in `counterOne` is unchanged
+  counterOne(); // => Logs "5"
+  ```
+
+It may be useful to call `counter` to show them how its value is inaccessible outside of the function due to scope. `counter` has effectively become a private variable that is only modifiable by calling the generated counter function.
+
+* Using an IIFE
+
+  ```js
+  let counterFunc = (function() {
+    let counter = 0;
+    console.log(`Initializing counter at ${counter}`);
+    return function() {
+      console.log(++counter);
+    }
+  })() // => Logs "Initializing counter at 0"
+
+  counterFunc() // => Logs "1"
+
+  //Ask students to explain this code.
+  //What are the pros and cons of using this syntax?
+  ```
+
+### Currying with Closures
+The act of currying is to break one function that takes a number of parameters into more functions that take fewer parameters. Students have already seen examples of this above. The point of this part of the lecture is to clarify the term and provide them with some use-cases.
+
+  ```js
+  function multiply(num1, num2) {
+    return num1 * num2;
+  }
+
+  multiply(3, 4); // => 12
+
+  function curriedMultiply(num1) {
+    return function(num2) {
+      return num1 * num2;
+    }
+  }
+
+  triple = curriedMultiply(3);
+  triple(4); // => 12
+  ```
+
+### Preview of OO
+The following serves as a wrap up discussion about this lecture, as well as a transition into OO concepts in JS.
+
+Consider the following example:
+
+  ```js
+  function robotFactory() {
+    let count = 0;
+    let all = [];
+
+    return function(name, purpose) {
+      count++;
+
+      let robot = { name, purpose, id: count++ };
+      all.push(robot);
+
+      console.log("Your list of robots: ", all);
+      return robot;
+    }
+  }
+
+  const factory = robotFactory();
+  const x29 = factory("x29", "combat"); // => Logs "Your list of robots: [{name: "x29", purpose: "combat", id: 1}]", returns undefined
+  const p3x54 = factory("p3x54", "industrial"); // => Logs "Your list of robots: [{name: "x29", purpose: "combat", id: 1}, {name: "p3x54", purpose: "industrial", id: 3}]", returns undefined
+  ```
