@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "First task"
+    },
+    {
+      "id": 2,
+      "text": "Second task"
+    },
+    {
+      "text": "Task from fetch!",
+      "id": 3
+    },
+    {
+      "text": "Four!",
+      "id": 4
+    },
+    {
+      "text": "five!!!",
+      "id": 5
+    },
+    {
+      "text": "Fasdfghjkhlj!",
+      "id": 6
+    },
+    {
+      "text": "Fasdfghjkhlj!",
+      "id": 7
+    },
+    {
+      "text": "asdfsgdhfjgh",
+      "id": 8
+    },
+    {
+      "text": "asdfg",
+      "id": 9
+    },
+    {
+      "text": "asdfsgf",
+      "id": 10
+    },
+    {
+      "text": "nice",
+      "id": 11
+    },
+    {
+      "text": "asdfg",
+      "id": 12
+    }
+  ]
+}
