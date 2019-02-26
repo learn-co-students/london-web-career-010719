@@ -1,6 +1,6 @@
-
 const dogTable = document.querySelector('#table-body')
 const dogForm = document.querySelector('#dog-form')
+const sexSelect = document.querySelector('#sex-select')
 
 const dogsUrl = 'http://localhost:3000/dogs'
 
@@ -8,7 +8,6 @@ let selectedDog = undefined
 
 const getDogs = () => fetch(dogsUrl).then(res => res.json())
 const renderDogs = dogs => dogs.forEach(renderDog)
-
 
 const dogRowHtml = dog => `<td>${dog.name}</td> <td>${dog.breed}</td> <td>${dog.sex}</td> <td><button>Edit</button></td>`
 
@@ -46,14 +45,6 @@ dogForm.addEventListener('submit', event => {
         .then(updateDogRowInTable)
 })
 
-function updateDogInAPI(dog) {
-
-}
-
-let updateDogInAPI = function (dog) {
-
-}
-
 const updateDogInAPI = dog => fetch(
     `${dogsUrl}/${dog.id}`,
     {
@@ -72,4 +63,10 @@ const updateDogRowInTable = dog => {
 }
 
 getDogs()
-    .then(dogs => renderDogs(dogs))
+    .then(dogs => {
+        sexSelect.addEventListener('change', event => {
+            dogTable.innerHTML = ''
+            renderDogs(event.target.value === 'all' ? dogs : dogs.filter(d => d.sex === event.target.value))
+        })
+        renderDogs(dogs)
+    })
