@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+.painting-card {
+  max-width: 25rem;
+  margin: auto;
+  border: solid rgba(0, 0, 255, 0);
+}
+
+.painting-card:hover {
+  cursor: pointer;
+  border: solid rgba(0, 0, 255, 0.26);
+  border-radius: 0.5rem;
+}
+
+.painting-details {
+  max-width: 25rem;
+  margin: auto;
+  border: solid blue;
+  border-radius: 0.5rem;
+}
