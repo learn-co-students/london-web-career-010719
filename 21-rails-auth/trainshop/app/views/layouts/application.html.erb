@@ -10,19 +10,27 @@
   </head>
 
   <body>
-   <div>
-      <% if !logged_in? %>
-        <%= link_to 'signup', signup_path %>
-        <%= link_to 'login', login_path %>
-      <% else %>
-        <span>hello, <%= current_user.name %></span>
-        <%= link_to "log out", logout_path, method: "post" %>
-        <%= link_to "my account", user_path(current_user.id) %>
-      <% end %>
-    </div>
 
-    <h1>
+    <h1 class="header">
       <%= link_to 'Trainshop 🛤', trains_path %>
+      <span>
+          <% if !logged_in? %>
+            <button>
+              <%= link_to 'signup', signup_path %>
+            </button>
+            <button>
+              <%= link_to 'login', login_path %>
+            </button>
+          <% else %>
+            <span>hello, <%= current_user.name %></span>
+            <button>
+              <%= link_to "log out", logout_path, method: "post" %>
+            </button>
+            <button>
+              <%= link_to "my account", user_path(current_user.id) %>
+            </button>
+          <% end %>
+        </span>
     </h1>
 
     <% if flash[:errors] %>
